@@ -1,6 +1,10 @@
 # InventoryPro
 Inventory Pro is a full inventory management application to keep realtime inventory data
 
+you can view InventoryPro at the following:
+    github: https://github.com/cglerupcoding/InventoryPro
+    Heroku: https://young-forest-30276.herokuapp.com/
+
 In order to run invenory pro locally you will need the following dependencies installed on your machine:
 
 Express
