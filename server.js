@@ -14,19 +14,19 @@ app.use(bodyParser.json());
 
 
  // For Passport
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized:true})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
 
  //For Handlebars
-app.set('views', './app/views')
-app.engine('handlebars', exphandlebars({extname: '.handlebars'}));
+app.set('views', './app/views');
 app.set('view engine', '.handlebars');
+app.engine('handlebars', exphandlebars({extname: '.handlebars'}));
 
 
 app.get('/', function(req, res){
-  res.send('Welcome to Passport with Sequelize');
+  res.send('Welcome to Inventory Project');
 });
 
 
@@ -57,3 +57,4 @@ app.listen(5000, function(err){
     console.log("Site is live"); else console.log(err)
 
 });
+
