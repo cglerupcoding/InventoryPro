@@ -2,9 +2,9 @@
     "development": {
   
       "username": "root",
-      "password": "Mycwg4ever@CO",
+      "password": "",
       "database": "inventory_pro",
-      "host": "127.0.0.1",
+      "host": "localhost",
       "dialect": "mysql"
     },
     "test": {

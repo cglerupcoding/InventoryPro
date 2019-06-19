@@ -17,10 +17,16 @@
     "passport-local": "^1.0.0",
     "sequelize": "^5.8.9"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^5.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "prettier": "^1.18.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "lint": "eslint --quiet ."
   },
   "repository": {
     "type": "git",
@@ -31,5 +37,6 @@
   "bugs": {
     "url": "https://github.com/cglerupcoding/InventoryPro/issues"
   },
-  "homepage": "https://github.com/cglerupcoding/InventoryPro#readme"
+  "homepage": "https://github.com/cglerupcoding/InventoryPro#readme",
+  "keywords": []
 }
