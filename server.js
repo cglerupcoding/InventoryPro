@@ -6,6 +6,10 @@ var bodyParser = require('body-parser')
 var env        = require('dotenv').config()
 var exphandlebars     = require('express-handlebars')
 
+var passport = require('passport')
+  , LocalStrategy = require('passport-local').Strategy;
+
+  // determines in login is user or admin
 
 
 //For BodyParser

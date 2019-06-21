@@ -1,4 +1,9 @@
+body {
 
+    background-color: black;
+    color: white;
+
+}
 .checkout {
     padding: 20px 40px;
     font-size: 20px;
@@ -15,8 +20,11 @@
     background: rgb(22, 36, 36);
 }
 
-.jumbo{
+.jumbotron{
     font-family: algerian;
+    background-image: url("candle.gif");
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 .hidden {
@@ -57,14 +65,14 @@
 }
 
 .item-one {
-    background-image: url('http://net.archbold.k12.oh.us/ahs/web_class/Spring_10/TheHungerGames_Griffin/Images/Mockingjay3.jpg');
+    background-image: url('https://stinkycandlecompany.com/product/chocolate-cake-batter-4-oz/');
     background-position: center;
     background-size: 95%;
     color: white;
 }
 
 .item-two {
-    background-image: url('https://cdn.shopify.com/s/files/1/1089/2120/products/crazy-aaron-s-puttyworld-twilight-hypercolor-thinking-putty-heat-sensitive-hypercolors-23194275073_1024x1024.jpg?v=1537478852');
+    background-image: url('https://stinkycandlecompany.com/product/pear-candle-4-oz/');
     background-position: center;
     background-size: 140%;
     background-repeat: no-repeat;
@@ -74,7 +82,7 @@
 }
 
 .item-three {
-    background-image: url('https://vignette.wikia.nocookie.net/catan/images/7/7d/Settlers4thcover.jpg/revision/latest?cb=20080925155701');
+    background-image: url('https://stinkycandlecompany.com/product/pear-candle-4-oz/');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 130%;
@@ -83,7 +91,7 @@
 }
 
 .item-four {
-    background-image: url('https://cdn.shopify.com/s/files/1/0156/3912/products/bravejournal.jpg?v=1539727041');
+    background-image: url('https://stinkycandlecompany.com/product/pear-candle-4-oz/');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 150%;
@@ -91,7 +99,7 @@
 }
 
 .item-five {
-    background-image: url('https://prodimage.images-bn.com/pimages/4972825146200_p0_v1_s550x406.jpg');
+    background-image: url('https://stinkycandlecompany.com/product/pear-candle-4-oz/');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 105%;
@@ -122,6 +130,7 @@ aside {
 .container {
     width: 1200px;
     margin: auto;
+
 }
 
 .final {
@@ -158,4 +167,5 @@ aside {
     .container {
         width: 360px;
     }
-}
+    
+  
