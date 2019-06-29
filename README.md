@@ -1,62 +1,23 @@
-# InventoryPro
-Inventory Pro is a full inventory management application to keep realtime inventory data
-
-you can view InventoryPro at the following:
-    github: https://github.com/cglerupcoding/InventoryPro
-    Heroku: https://young-forest-30276.herokuapp.com/
-
-In order to run invenory pro locally you will need the following dependencies installed on your machine:
-
-Express
-Sequelize
-MySQL
-Passport
-Passport Local Strategy
-Body Parser
-Express Session
-Bcrypt Nodejs
-Express Handlebars for the views 
-
-To install the depencies subsequently add the following commands from your terminal in the code root directory:
-
-npm install express --save
- 
-npm install sequelize --save
- 
-npm install mysql --save
- 
-npm install passport --save
- 
-npm install passport-local --save
- 
-npm install body-parser --save
- 
-npm install express-session --save
- 
-npm install bcrypt-nodejs --save
- 
-npm install express-handlebars --save
+## Prerequisites
+* This is the administrative side to Smelly Candles
+* The App uses user authentication to allow admin users to access the administrative inventory panel.
 
 
-You will launch Inventory Pro from server.js 
+## Prerequisites
+* [Node.js and NPM](https://nodejs.org/en/)
+* [MySQL](https://dev.mysql.com/downloads/installer/)
 
+## Quick setup
+1. `npm install` to install the necessary packages.
+2. Update [config/database.js](../blob/master/config/database.js) with your MySQL database information and uncomment the line in the [.gitignore](../blob/master/.gitignore) to ignore the updated config file.
+3. Update some project-specific info in a few places:
+  * Your project name in [package.json](../blob/master/package.json)
+  * Your passport secret in [app.js](../blob/master/app.js)
+4. `node scripts/dbsetup.js` to set up your database, if it doesn't already exist.
+5. `npm start` to start up your app! Go to [http://localhost:3000](http://localhost:3000) to see it.
 
-Inventory Pro Meets the following requirements:
+## User authentication
+The user authentication is roughly based off of [this tutorial](https://scotch.io/tutorials/easy-node-authentication-setup-and-local). There is a User class in [models/user.js](../blob/master/models/user.js) and new users are furnished with a UUID instead of the default MySQL ascending object ids.
 
-1. Your project must: Use a Node and Express Web Server; Be backed by a MySQL Database an ORM (not necessarily Sequelize); 
-
-2. Have both GET and POST routes for retrieving and adding new data; Be deployed using Heroku (with Data); 
-
-3. Utilize at least one new library, package, or technology that we haven’t discussed;
-    
-    -Invenotry pro utilizes passport for user aunthenication
-
-4. Have a polished frontend / UI; 
- 
-5. Have folder structure that meets MVC Paradigm;
-
- 
-6. Meet good quality coding standards (indentation, scoping, naming).
-  
- 7. Must not expose sensitive API key information on the server, see Protecting-API-Keys-In-Node.md
-    
+## User administration
+Basic user administration (viewing and deleting users) is accessible at the `/admin` path. This path is only visible to users with the `admin` property (in the users database), which you can set with direct database access.

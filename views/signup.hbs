@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign Up</title>
+    {{> head}}
+  </head>
+  <body>
+
+     <nav class="navbar navbar-expand-sm bg-light sticky-top">
+    <a href="/">
+      <button class="btn btn-lg btn-default">
+        <span class="fa fa-home"></span>
+      </button>
+    </a>
+
+ 
+
+    <ul class="navbar-nav ml-auto">
+
+        <!-- Button to test Summary Page Function -->
+        <!-- <li class="nav-item">
+            <button type="button" class="btn btn-primary" id="TestSummaryBtn">Test</button>   
+         </li> -->
+   
+      <li class="nav-item">
+         <!-- Button to call the View Cart Function -->
+         <button type="button" class="btn btn-primary" id="ViewCartBtn">View Cart</button>   
+      </li>
+      <li class="nav-item">
+          <button type="button" class="btn btn-primary" id="CheckOutBtn">Checkout</button>   
+        </li>
+           </ul>
+  </nav>
+
+    <div class="container">
+      <div class="col-sm-6 col-sm-offset-3">
+        <h1>Sign Up</h1>
+
+        {{#if message.length}}
+          <div class="alert alert-danger">{{ message }}</div>
+        {{/if}}
+
+        <form action="/signup" method="post">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="text" class="form-control" name="email" required>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="password" required>
+          </div>
+          <button type="submit" class="btn btn-info">Sign Up</button>
+        </form>
+
+        <hr>
+
+        <p>Already have an account? <a href="/login">Login</a></p>
+        <p>Or return to <a href="/">home</a>.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Profile</title>
+    {{> head}}
+  </head>
+  <body>
+        {{!-- Navbar --}}
+     <nav class="navbar navbar-expand-sm bg-light sticky-top">
+    <a href="/">
+      <button class="btn btn-lg btn-default">
+        <span class="fa fa-home"></span>
+      </button>
+    </a>
+
+ 
+
+    <ul class="navbar-nav ml-auto">
+
+        <!-- Button to test Summary Page Function -->
+        <!-- <li class="nav-item">
+            <button type="button" class="btn btn-primary" id="TestSummaryBtn">Test</button>   
+         </li> -->
+   
+      <li class="nav-item">
+         <!-- Button to call the View Cart Function -->
+         <button type="button" class="btn btn-primary" id="ViewCartBtn">View Cart</button>   
+      </li>
+      <li class="nav-item">
+          <button type="button" class="btn btn-primary" id="CheckOutBtn">Checkout</button>   
+        </li>
+           </ul>
+            </nav>
+
+    <div class="container">
+      <div class="page-header text-center">
+        <h1>Profile</h1>
+        <a href="/logout" class="btn btn-info">Logout</a>
+           <a href="/admin" class="btn btn-info">Admin Console</a>
+      </div>
+
+      <div class="well">
+        <p><strong>User ID</strong>: {{ user.id }}</p>
+        <p><strong>Email</strong>: {{ user.email }}</p>
+      </div>
+    </div>
+  </body>
+</html>
