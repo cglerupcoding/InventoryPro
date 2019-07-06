@@ -5,7 +5,7 @@ var dbconfig = require('../config/database');
 // Database setup
 var pool = mysql.createPool(dbconfig.connection);
 pool.getConnection(function(err, conn) {
-  conn.query('USE ' + dbconfig.database, function() {
+  conn.query('USE' + dbconfig.database, function() {
     conn.release();
   });
 });
@@ -46,6 +46,6 @@ var keepAlive = function() {
 };
 
 // Set up a keepalive heartbeat
-setInterval(keepAlive, 30000);
+setInterval(keepAlive, 100000);
 
 exports.query = query;
