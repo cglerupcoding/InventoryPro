@@ -3,9 +3,9 @@ var mysql = require('mysql');
 var dbconfig = require('../config/database');
 
 // Database setup
-var pool = mysql.createPool(dbconfig.production);
+var pool = mysql.createPool(dbconfig.connection);
 pool.getConnection(function(err, conn) {
-  conn.query('USE ' + dbconfig.use_env_variable, function() {
+  conn.query('USE ' + dbconfig.database, function() {
     conn.release();
   });
 });
@@ -34,18 +34,18 @@ var query = function(queryString, params, callback) {
   });
 };
 
-// // Heartbeat function to keep the connection to the database up
-// var keepAlive = function() {
-//   getConnection(function(err, conn) {
-//     if (err)
-//       return;
+// Heartbeat function to keep the connection to the database up
+var keepAlive = function() {
+  getConnection(function(err, conn) {
+    if (err)
+      return;
 
-//     conn.ping();
-//     conn.release();
-//   });
-// };
+    conn.ping();
+    conn.release();
+  });
+};
 
-// // Set up a keepalive heartbeat
-// setInterval(keepAlive, 30000);
+// Set up a keepalive heartbeat
+setInterval(keepAlive, 30000);
 
 exports.query = query;
