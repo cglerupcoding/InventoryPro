@@ -1,51 +1,27 @@
-var mysql = require('mysql');
+//In this file is everything needed to establish connection with MySQL db
+var mysql = require("mysql");
 
-var dbconfig = require('../config/database');
+var connection;
 
-// Database setup
-var pool = mysql.createPool(dbconfig.connection);
-pool.getConnection(function(err, conn) {
-  conn.query('USE' + dbconfig.database, function() {
-    conn.release();
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+  connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "P@ssword",
+    database: "project"
   });
+}
+
+connection.connect(function(err) {
+  if (err) {
+    console.error("error connecting: " + err.stack);
+    return;
+  } else {
+    console.log("connected as id " + connection.threadId);
+  }
 });
 
-// Returns a connection to the db
-var getConnection = function(callback) {
-  pool.getConnection(function(err, conn) {
-    callback(err, conn);
-  });
-};
-
-// Helper function for querying the db; releases the db connection
-// callback(err, rows)
-var query = function(queryString, params, callback) {
-  getConnection(function(err, conn) {
-    if (err)
-      return callback(err);
-    conn.query(queryString, params, function(err, rows) {
-      conn.release();
-
-      if (err)
-        return callback(err);
-
-      return callback(err, rows);
-    });
-  });
-};
-
-// Heartbeat function to keep the connection to the database up
-var keepAlive = function() {
-  getConnection(function(err, conn) {
-    if (err)
-      return;
-
-    conn.ping();
-    conn.release();
-  });
-};
-
-// Set up a keepalive heartbeat
-setInterval(keepAlive, 100000);
-
-exports.query = query;
+//exports this file content so other files can access it
+module.exports = connection;
