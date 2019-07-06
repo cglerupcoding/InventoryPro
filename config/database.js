@@ -1,15 +1,15 @@
 module.exports = {
   'connection': {
-    'host': 'p1us8ottbqwio8hv.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-    'user': 'hu31k704be9j8iyv',
-    'password': 'dkz3knpmgfs311r1'
+    'host': 'localhost',
+    'user': 'root',
+    'password': 'P@ssword'
   },
-  'database': 'r257vr3nj0brva3j'
+  'database': 'project'
 };
 
-// module.exports = {
-//   'production': {
-//     "use_env_variable": "JAWSDB_URL",
-//     "dialect": "mysql"
-//   }
-// };
+module.exports = {
+  'production': {
+    "use_env_variable": "JAWSDB_URL",
+    "dialect": "mysql"
+  }
+};

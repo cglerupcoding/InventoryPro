@@ -1,8 +1,9 @@
 var mysql = require('mysql');
 
 var dbconfig = require('../config/database');
-
+var env = require('../config/database');
 // Database setup
+
 var pool = mysql.createPool(dbconfig.connection);
 pool.getConnection(function(err, conn) {
   conn.query('USE ' + dbconfig.database, function() {
@@ -10,6 +11,12 @@ pool.getConnection(function(err, conn) {
   });
 });
 
+var jaws = mysql.createPool(dbconfig.production);
+  jaws.getConnection(function(err, conn) {
+  conn.query('USE ' + dbconfig.use_env_variable, function() {
+    conn.release();
+  });
+});
 // Returns a connection to the db
 var getConnection = function(callback) {
   pool.getConnection(function(err, conn) {
