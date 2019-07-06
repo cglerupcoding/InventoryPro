@@ -11,12 +11,7 @@ pool.getConnection(function(err, conn) {
   });
 });
 
-var jaws = mysql.createPool(dbconfig.production);
-  jaws.getConnection(function(err, conn) {
-  conn.query('USE ' + dbconfig.use_env_variable, function() {
-    conn.release();
-  });
-});
+
 // Returns a connection to the db
 var getConnection = function(callback) {
   pool.getConnection(function(err, conn) {
@@ -55,4 +50,21 @@ var keepAlive = function() {
 // Set up a keepalive heartbeat
 setInterval(keepAlive, 30000);
 
+// =============================
+      // JawsDB
+             //================
+
+   var jaws = mysql.createPool(dbconfig.production);
+  jaws.getConnection(function(err, conn) {
+  conn.query('USE ' + dbconfig.use_env_variable, function() {
+    conn.release();
+  });
+});
+
+// Returns a connection to the db
+var getConnection = function(callback) {
+  jaws.getConnection(function(err, conn) {
+    callback(err, conn);
+  });
+};
 exports.query = query;
