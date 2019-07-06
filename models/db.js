@@ -1,16 +1,14 @@
 var mysql = require('mysql');
 
 var dbconfig = require('../config/database');
-var env = require('../config/database');
-// Database setup
 
-var pool = mysql.createPool(dbconfig.connection);
+// Database setup
+var pool = mysql.createPool(dbconfig.production);
 pool.getConnection(function(err, conn) {
-  conn.query('USE ' + dbconfig.database, function() {
+  conn.query('USE ' + dbconfig.use_env_variable, function() {
     conn.release();
   });
 });
-
 
 // Returns a connection to the db
 var getConnection = function(callback) {
@@ -36,35 +34,18 @@ var query = function(queryString, params, callback) {
   });
 };
 
-// Heartbeat function to keep the connection to the database up
-var keepAlive = function() {
-  getConnection(function(err, conn) {
-    if (err)
-      return;
+// // Heartbeat function to keep the connection to the database up
+// var keepAlive = function() {
+//   getConnection(function(err, conn) {
+//     if (err)
+//       return;
 
-    conn.ping();
-    conn.release();
-  });
-};
+//     conn.ping();
+//     conn.release();
+//   });
+// };
 
-// Set up a keepalive heartbeat
-setInterval(keepAlive, 30000);
+// // Set up a keepalive heartbeat
+// setInterval(keepAlive, 30000);
 
-// =============================
-      // JawsDB
-             //================
-
-   var jaws = mysql.createPool(dbconfig.production);
-  jaws.getConnection(function(err, conn) {
-  conn.query('USE ' + dbconfig.use_env_variable, function() {
-    conn.release();
-  });
-});
-
-// Returns a connection to the db
-var getConnection = function(callback) {
-  jaws.getConnection(function(err, conn) {
-    callback(err, conn);
-  });
-};
 exports.query = query;

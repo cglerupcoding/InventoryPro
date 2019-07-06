@@ -7,9 +7,9 @@ module.exports = {
   'database': 'project'
 };
 
-module.exports = {
-  'production': {
-    "use_env_variable": "JAWSDB_URL",
-    "dialect": "mysql"
-  }
-};
+// module.exports = {
+//   'production': {
+//     "use_env_variable": "JAWSDB_URL",
+//     "dialect": "mysql"
+//   }
+// };
